@@ -1,0 +1,218 @@
+/* Tambahkan ini ke bagian bawah globals.css - DARK MODE */
+
+.chat-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #0f0f0f; /* background halaman */
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: #e5e5e5;
+}
+
+.chat-box {
+  width: 100%;
+  max-width: 600px;
+  background-color: #1a1a1a; /* kotak chat */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  padding: 1rem;
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ffffff;
+}
+
+.messages {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 80px; /* Memberikan lebih banyak ruang untuk form input */
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 80%;
+  word-wrap: break-word;
+  margin-bottom: 1rem;
+}
+.user-message {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.assistant-message,
+.user-message {
+  display: flex;
+  align-items: flex-start;
+}
+
+.message-text {
+  background-color: #2a2a2a;
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  margin: 0 0.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #f1f1f1;
+}
+
+.user-message .message-text {
+  background-color: #4ade80; /* hijau muda */
+  color: #000000; /* teks gelap untuk user */
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.input-form {
+  display: flex;
+  border-top: 1px solid #333;
+  padding: 0.5rem 0.75rem;
+  background-color: #1a1a1a;
+  position: fixed; /* Keep the input box fixed at the bottom */
+  bottom: 0;
+  width: 100%;  /* Pastikan input mengisi seluruh lebar layar */
+  z-index: 10;
+}
+
+.input-field {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #555;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  font-size: 1rem;  /* Menyesuaikan ukuran font input */
+}
+
+.input-field::placeholder {
+  color: #888;
+}
+
+.send-button {
+  padding: 0.5rem 1rem;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  width: 20%; /* Memberikan ruang lebih banyak untuk input */
+}
+
+.send-button:disabled {
+  background-color: #6366f1;
+  cursor: not-allowed;
+}
+
+.message-image {
+  display: block;
+  margin-top: 10px;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 480px) {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .chat-container {
+    padding: 0;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-box {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow chat-box to grow in height */
+    margin-bottom: 80px; /* Give space for the input field */
+    border-radius: 0;
+  }
+
+  .messages {
+    padding: 1rem 0.75rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 80px; /* Memberikan ruang tambahan untuk form input */
+  }
+
+  .input-form {
+    padding: 0.5rem 0.75rem;
+    background-color: #1a1a1a;
+    position: fixed; /* Keep the input box fixed at the bottom */
+    bottom: 0;
+    width: 100%; /* Pastikan input mengisi seluruh lebar layar */
+    z-index: 10;
+  }
+
+  .input-field {
+    font-size: 1rem;
+    width: 85%;  /* Membuat input sedikit lebih kecil */
+  }
+
+  .send-button {
+    padding: 0.5rem 1rem;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    width: 20%; /* Memberikan ruang lebih banyak untuk input */
+  }
+
+  .title {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .message-text {
+    font-size: 0.95rem; /* Menyesuaikan ukuran font pesan */
+  }
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 80%;
+    word-wrap: break-word;
+    margin-bottom: 1rem;
+  }
+
+  input, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 16px; /* Pastikan font size standar untuk mencegah zoom otomatis */
+  }
+}
