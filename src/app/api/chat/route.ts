@@ -50,7 +50,7 @@ async function generateCaptionFromChat(messages: string[]) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'opengvlab/internvl3-14b:free',
+      model: 'meta-llama/llama-3.3-70b-instruct:free',
       messages: [
         {
           role: 'system',
@@ -125,7 +125,7 @@ export async function POST(req: NextRequest) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'opengvlab/internvl3-14b:free',
+      model: 'meta-llama/llama-3.3-70b-instruct:free',
       messages: [
         {
           role: 'system',
