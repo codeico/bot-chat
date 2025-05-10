@@ -1,5 +1,6 @@
-/* Tambahkan ini ke bagian bawah globals.css - DARK MODE */
+/* GLOBAL STYLES */
 
+/* Dark Mode Styling */
 .chat-container {
   display: flex;
   justify-content: center;
@@ -85,30 +86,34 @@
   border-radius: 50%;
 }
 
+/* Form Input */
 .input-form {
   display: flex;
   border-top: 1px solid #333;
   padding: 0.5rem 0.75rem;
   background-color: #1a1a1a;
-  position: fixed; /* Keep the input box fixed at the bottom */
+  position: fixed;
   bottom: 0;
-  width: 100%;  /* Pastikan input mengisi seluruh lebar layar */
+  width: 100%;
   z-index: 10;
+  justify-content: space-between; /* Menyeimbangkan input dan tombol kirim */
+  align-items: center; /* Menjaga posisi tombol tetap sejajar dengan input */
+  max-width: 600px; /* Agar sesuai dengan lebar chatbox */
+  left: 50%; /* Menyejajarkan input dengan chatbox */
+  transform: translateX(-50%); /* Memastikan form input terpusat */
 }
 
 .input-field {
-  flex: 1;
+  flex: 1; /* Memastikan input field mengambil sisa ruang */
+  flex-shrink: 0; /* Prevent shrinking */
   padding: 0.5rem 1rem;
   border: 1px solid #555;
   border-radius: 9999px;
   margin-right: 0.5rem;
   background-color: #2a2a2a;
-  color: #ffffff;
-  font-size: 1rem;  /* Menyesuaikan ukuran font input */
-}
-
-.input-field::placeholder {
-  color: #888;
+  color: white;
+  font-size: 1rem;
+  min-width: 150px; /* Setel lebar minimal agar tidak terlalu sempit */
 }
 
 .send-button {
@@ -118,8 +123,11 @@
   border: none;
   border-radius: 9999px;
   cursor: pointer;
-  width: 20%; /* Memberikan ruang lebih banyak untuk input */
+  width: 25%; /* Lebar tombol kirim di desktop */
+  min-width: 80px; /* Menyediakan lebar minimum untuk tombol kirim */
+  max-width: 120px; /* Mengatur batas maksimum lebar tombol kirim */
 }
+
 
 .send-button:disabled {
   background-color: #6366f1;
