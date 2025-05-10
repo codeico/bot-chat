@@ -6,7 +6,16 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 module.exports = {
+  // ✅ Baru (disarankan)
   images: {
-    domains: ['replicate.delivery'],  // Tambahkan domain eksternal di sini
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'replicate.delivery',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
+
 };
