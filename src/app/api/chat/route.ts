@@ -3,6 +3,15 @@ import axios from 'axios';
 
 const IMAGE_TRIGGER_KEYWORDS = ['pap', 'foto kamu', 'selfie', 'kirimin foto', 'pap dong', 'gambar kamu'];
 
+type Message = {
+  role: 'system' | 'user' | 'assistant';
+  content: string;
+};
+
+type ChatResponse = {
+  choices: { message: { content: string } }[];
+};
+
 async function generateImageFromPrompt(prompt: string) {
   const options = {
     method: 'POST',
@@ -39,7 +48,7 @@ async function generateImageFromPrompt(prompt: string) {
   }
 }
 
-async function generateCaptionFromChat(messages: any[]) {
+async function generateCaptionFromChat(messages: Message[]) {
   try {
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
@@ -76,7 +85,7 @@ async function generateCaptionFromChat(messages: any[]) {
       return "Maaf, Mikasa lagi nggak bisa jawab sekarang 😢";
     }
 
-    const data = await response.json();
+    const data: ChatResponse = await response.json();
 
     if (!data.choices || !data.choices[0]?.message?.content) {
       console.error("Invalid OpenRouter response:", data);
@@ -116,7 +125,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       reply: caption,
-      image: imageUrl || "No image generated", // Add fallback if image URL is null
+      image: imageUrl,
     });
   }
 
